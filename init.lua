@@ -1,0 +1,2 @@
+require("kaiden")
+print("welcome!")
