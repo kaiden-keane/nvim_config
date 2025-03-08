@@ -1,2 +1,2 @@
-require("kaiden")
-print("welcome!")
+require("kaiden.core")
+require("kaiden.lazy")
