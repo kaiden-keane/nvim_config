@@ -16,4 +16,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
-require("lazy").setup("kaiden.plugins")
+require("lazy").setup({{import = "kaiden.plugins"}, {import= "kaiden.plugins.lsp"}}, {})
