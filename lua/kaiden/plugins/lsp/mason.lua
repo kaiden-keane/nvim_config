@@ -1,12 +1,14 @@
 return {
     "williamboman/mason.nvim",
     dependencies = {
-    "williamboman/mason-lspconfig.nvim"
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig"
     },
     config = function()
         local mason = require("mason")
+
         local mason_lspconfig = require("mason-lspconfig")
-        
+
         mason.setup({
             ui = {
                 icons = {
@@ -14,26 +16,22 @@ return {
                     package_pending = "➜",
                     package_uninstalled = "✗",
                 },
-            },
+            }
         })
-        
 
         mason_lspconfig.setup({
-            -- list of servers for mason to install
             ensure_installed = {
-                "html", -- html
+                "html", -- obvi html
                 "cssls", -- css
-                "lua_ls", -- lua
                 "pyright", -- python
+                "clangd", -- c and c++
+                "cmake", -- cmake
                 "bashls", -- bash
-                "clangd", -- C ^ C++
-                "dockerls", -- docker
-                "ltex", -- latex
-                "ols", -- odin
-                "cmake" -- CMAKE
+                "lua_ls", -- lua
+                "texlab", -- LaTeX
             },
+            -- atuo install with lspconfig
             automatic_installation = true
         })
-
     end
 }
