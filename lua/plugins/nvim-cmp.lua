@@ -1,3 +1,5 @@
+-- autocomplete
+
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter", -- make it only load when we are inserting

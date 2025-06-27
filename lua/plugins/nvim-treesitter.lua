@@ -1,3 +1,5 @@
+-- highlighting and such
+
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -9,7 +11,19 @@ return {
 
         -- configure treesitter
         treesitter.setup({ -- enable syntax highlighting
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript", "typescript", "cpp", "python", "sql", "java"},
+            ensure_installed = {"c",
+                                "lua",
+                                "vim",
+                                "vimdoc",
+                                "query",
+                                "markdown",
+                                "markdown_inline",
+                                "javascript",
+                                "typescript",
+                                "cpp",
+                                "python",
+                                "sql",
+                                "java"},
 
             auto_install = true,
 
