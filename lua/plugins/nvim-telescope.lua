@@ -17,7 +17,7 @@ return {
 
         -- or create your custom action
         local custom_actions = transform_mod({
-            open_trouble_qflist = function(prompt_bufnr)
+            open_trouble_qflist = function()
                 trouble.toggle("quickfix")
             end,
         })
@@ -46,7 +46,7 @@ return {
         keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
         keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
         keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-        
+
         local builtin = require("telescope.builtin")
         vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
         vim.keymap.set('n', '<C-p>', builtin.git_files, {desc = 'git file search'})
