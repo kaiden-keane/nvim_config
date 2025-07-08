@@ -29,6 +29,8 @@ return {
                 "bashls", -- bash
                 "lua_ls", -- lua
                 "texlab", -- LaTeX
+                "eslint", -- javascript / typescript
+                "ts_ls", -- javascript / typescript again
             },
             -- atuo install with lspconfig
             automatic_installation = true

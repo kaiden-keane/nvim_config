@@ -110,5 +110,14 @@ return {
         lspconfig["texlab"].setup({
             capabilities = capabilities,
         })
+
+        lspconfig["eslint"].setup({
+            capabilities = capabilities,
+            filetypes = {"js"}
+        })
+
+        lspconfig["ts_ls"].setup({
+            capabilities = capabilities,
+        })
     end
 }
