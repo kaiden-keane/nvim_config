@@ -11,7 +11,12 @@ return {
         vim.g.loaded_netrwPlugin = 1
 
         -- empty setup using defaults
-        require("nvim-tree").setup()
+        require("nvim-tree").setup({
+            -- ... other settings
+            git = {
+                ignore = false, -- Set to false to show gitignored files
+            },
+        })
         local keymap = vim.keymap -- for conciseness
 
         keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
