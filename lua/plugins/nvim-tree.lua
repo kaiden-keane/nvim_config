@@ -11,6 +11,8 @@ return {
         vim.g.loaded_netrwPlugin = 1
 
         -- empty setup using defaults
+        require("nvim-tree").setup()
+        -- apply gitignore stuff
         require("nvim-tree").setup({
             -- ... other settings
             git = {
