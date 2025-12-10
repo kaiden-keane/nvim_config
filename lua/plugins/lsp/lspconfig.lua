@@ -6,7 +6,6 @@ return {
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
-        local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
         local keymap = vim.keymap
@@ -80,13 +79,13 @@ return {
             },
         })
 
-        lspconfig["pyright"].setup({
+        vim.lsp.config["pyright"] = {
             capabilities = capabilities,
             filetypes = {"py"}
-        })
+        }
 
         -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config["lua_ls"] = {
             capabilities = capabilities,
             settings = {
                 Lua = {
@@ -105,19 +104,17 @@ return {
                     },
                 },
             },
-        })
-
-        lspconfig["texlab"].setup({
+        }
+        vim.lsp.config["texlab"] = {
             capabilities = capabilities,
-        })
-
-        lspconfig["eslint"].setup({
+        }
+        vim.lsp.config["eslint"] = {
             capabilities = capabilities,
             filetypes = {"js"}
-        })
+        }
 
-        lspconfig["ts_ls"].setup({
+        vim.lsp.config["ts_ls"] = {
             capabilities = capabilities,
-        })
+        }
     end
 }
