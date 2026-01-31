@@ -17,4 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- load plugins
 -- looks weird because we need it to load nested directories (lsp)
-require("lazy").setup({{import = "plugins"}, {import = "plugins.lsp"}})
+require("lazy").setup({
+    {import = "plugins"},
+    {import = "plugins.lsp"}
+})

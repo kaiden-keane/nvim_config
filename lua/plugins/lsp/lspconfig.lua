@@ -1,13 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
-    event = {"BufReadPre", "BufNewFile" },
-    dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
-        { "antosha417/nvim-lsp-file-operations", config = true },
-    },
-    config = function()
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    event = { "BufReadPre", "BufNewFile" },
 
+config = function()
         local keymap = vim.keymap
 
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -58,9 +53,6 @@ return {
             end,
         })
 
-        -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-
         -- Change the Diagnostic symbols in the sign column (gutter)
         vim.diagnostic.config({
             signs = {
@@ -78,43 +70,5 @@ return {
                 },
             },
         })
-
-        vim.lsp.config["pyright"] = {
-            capabilities = capabilities,
-            filetypes = {"py"}
-        }
-
-        -- configure lua server (with special settings)
-        vim.lsp.config["lua_ls"] = {
-            capabilities = capabilities,
-            settings = {
-                Lua = {
-                    -- make the language server recognize "vim" global
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                    workspace = {
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true,
-                        }
-                    },
-                    completion = {
-                        callSnippet = "Replace",
-                    },
-                },
-            },
-        }
-        vim.lsp.config["texlab"] = {
-            capabilities = capabilities,
-        }
-        vim.lsp.config["eslint"] = {
-            capabilities = capabilities,
-            filetypes = {"js"}
-        }
-
-        vim.lsp.config["ts_ls"] = {
-            capabilities = capabilities,
-        }
     end
 }
