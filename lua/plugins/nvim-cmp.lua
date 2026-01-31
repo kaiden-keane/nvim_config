@@ -4,6 +4,7 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter", -- make it only load when we are inserting
     dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer", -- source for text in buffer
         "hrsh7th/cmp-path", -- source for file system paths
         "L3MON4D3/LuaSnip", -- snippet engine
