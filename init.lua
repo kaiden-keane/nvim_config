@@ -1,3 +1,3 @@
 -- load the core first then plugins
-require("core")
+require("config")
 require("plugins")

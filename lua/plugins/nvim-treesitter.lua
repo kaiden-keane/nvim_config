@@ -2,27 +2,13 @@
 
 return {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     lazy = false,
     build = ":TSUpdate",
     config = function()
-        local treesitter = require("nvim-treesitter.configs")
+        local treesitter = require("nvim-treesitter")
         -- configure treesitter
-        treesitter.setup({ -- enable syntax highlighting
-            ensure_installed = {"c",
-                                "lua",
-                                "vim",
-                                "vimdoc",
-                                "query",
-                                "markdown",
-                                "markdown_inline",
-                                "javascript",
-                                "typescript",
-                                "cpp",
-                                "python",
-                                "sql",
-                                "java"},
-
+        treesitter.setup({
             auto_install = true,
 
             highlight = {
@@ -31,6 +17,23 @@ return {
             },
             -- enable indentation
             indent = { enable = true },
+
+        })
+        treesitter.install({
+            "c",
+            "lua",
+            "vim",
+            "vimdoc",
+            "query",
+            "markdown",
+            "markdown_inline",
+            "javascript",
+            "typescript",
+            "cpp",
+            "python",
+            "sql",
+            "java",
+            "odin",
         })
     end,
 }

@@ -1,7 +1,7 @@
 -- first load remaps and options
-require("core.mappings")
-require("core.options")
+require("config.mappings")
+require("config.options")
 
 -- load lazy.nvim
 -- this manages the plugins so im considering this core
-require("core.lazy")
+require("config.lazy")
