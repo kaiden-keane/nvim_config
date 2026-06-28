@@ -11,6 +11,7 @@ return {
             "lua_ls", -- lua
             "texlab", -- LaTeX
             "eslint", -- javascript / typescript
+            "ols", -- Odin
         },
         -- atuo install with lspconfig
         automatic_installation = true
