@@ -5,6 +5,10 @@ return {
 config = function()
         local keymap = vim.keymap
 
+        -- advertise nvim-cmp's completion capabilities to every LSP server
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        vim.lsp.config("*", { capabilities = capabilities })
+
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
