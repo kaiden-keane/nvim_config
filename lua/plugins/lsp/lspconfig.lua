@@ -9,6 +9,33 @@ config = function()
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
         vim.lsp.config("*", { capabilities = capabilities })
 
+        -- clangd: needs a compile_commands.json to resolve includes. If a project
+        -- keeps it in a build subdir, point at it with a .clangd file at the repo
+        -- root (CompileFlags.CompilationDatabase), which also anchors root_dir there.
+        vim.lsp.config("clangd", {
+            cmd = {
+                "clangd",
+                "--background-index", -- project-wide references / workspace symbols
+                "--header-insertion=never",
+                "--completion-style=detailed",
+                "--pch-storage=memory",
+            },
+        })
+
+        -- texlab: vimtex owns the build, so texlab only does completion/lint/format
+        vim.lsp.config("texlab", {
+            settings = {
+                texlab = {
+                    build = { onSave = false },
+                    -- NOTE: texlab 5.26.0 never actually spawns chktex, so this
+                    -- is inert for now. Kept so linting turns on if that is fixed.
+                    -- For working chktex linting, use nvim-lint instead.
+                    chktex = { onOpenAndSave = true, onEdit = false },
+                    -- latexFormatter defaults to "latexindent"
+                },
+            },
+        })
+
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
